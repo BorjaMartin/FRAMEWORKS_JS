@@ -1,0 +1,1 @@
+https://victorroblesweb.es/2018/01/31/configurar-acceso-cors-en-nodejs/

@@ -1,0 +1,45 @@
+<div id="formulario">
+  <div class="center">
+    <div id="content">
+      <h1 class="subheader" v-if="!isEdit">Crear Artículo</h1>
+      <h1 class="subheader" v-if="isEdit">Editar Artículo</h1>
+      <form class="mid-form" @submit.prevent="save">
+        <div class="form-group">
+          <label for="titulo">Titulo</label>
+          <input type="text" name="titulo" v-model="article.title" />
+          <div v-if="submited && !$v.article.title.required">Este campo es obligatorio</div>
+          <div v-if="submited && !$v.article.title.minLength">Este campo es debe ser mayor de 2 caracteres
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="content">Contenido</label>
+          <textarea type="text" name="content" v-model="article.content" />
+          <div v-if="submited && !$v.article.content.required">Este campo es obligatorio</div>
+            <div
+              v-if="submited && !$v.article.content.minLength"
+            >Este campo es debe ser mayor de 10 caracteres</div>
+          </div>
+
+          <div class="form-group">
+            <div v-id="isEdit && article.image">
+
+              <img
+                class="thumb"
+                :src="url+'get-image/'+article.image"
+                :alt="article.title"
+                v-if="article.image"
+              />
+
+            </div>
+            <label for="image">Imagen</label>
+            <input type="file" id="file" ref="file" name="file0" @change="fileChange()" />
+          </div>
+          <div class="clearfix"></div>
+
+          <input type="submit" value="Guardar" class="btn btn-success" />
+        </form>
+      </div>
+      <Sidebar></Sidebar>
+    </div>
+  </div>

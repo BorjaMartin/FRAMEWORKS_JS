@@ -1,0 +1,155 @@
+Documentación básica de Javascript
+
+variables declaradas con var.
+var nombre = "Borja";
+var altura = 190;
+
+document.write(); //Para imprimir variable por pantalla, en html
+concatenar variables con el +
+
+document.getElemntById(""); //Para imprmir  en una eitqueta del codigo de html
+
+var datos = document.getElemntById(""); 
+datos.innerHtml(); //Añadir contenido a la etiqueta de html, machacando el contenido de la eiqueta
+//añadir con comillas imvertidas, templates. Para generar plantillas 
+datos.innerHtml = '<h1>Soy la caja de datos </h1>
+                    <h2> Mi nombre es: $(nombre) </h2>  //Llamada a variable $()
+                    <h3> Mido $(altura) </h3>' ;
+
+Trabajar con JSON 
+    var coche = {
+        modelo: 'Mercedes'
+        maxima; 500
+        antiguedad: 2020
+
+        mostrardatos(){
+            console.log(this.modelo,this.maxima,this.antiguedad)
+        },
+        propiedad1: 'valor aleatorio'
+    };
+
+    document.write(' "<h1>" + coche.antiguedad + "</h1>"')
+    coche.mostrardatos();
+
+
+Trabajar con Promesas.
+    Util para peticiones asíncronas , peticiones ajax, que pueden tardar en devolver datos o no devolver.
+    capturar la respuesta positiva de un servicio o código.
+
+    var saludar = new Promise( (resolve, reject) => {
+
+        setTimeOut( () => {
+            let saludo = "Hola muy buenas chavales";
+
+            if (saludo) {
+                resolve(saludo);
+            }else{
+                reject('No hay saludo');
+            }
+
+        },2000)
+
+    });
+
+    saludar.then(resultado => {
+        alert(resultado);
+    })
+    .cath(err => {
+        alert(err);
+    })
+
+
+Trabajar con Clases.
+    class Coche{
+        constructor(modelo,velocidad,antiguedad){
+            this.modelo = modelo;
+            this.velocidad = velocidad;
+            this.antiguedad = antiguedad;
+        }
+
+        aumentarVelocida (){
+            this,velocidad += 1;
+        }
+        
+        reducirVelocida (){
+            this,velocidad -= 1;
+        }
+
+        
+    }
+    var coche1 = new coche('BMW', 200,2019);
+    var coche2 = new coche('Seat', 150,2017);
+
+
+Trabajar con Herencias.
+    class Autobus extends Coche{
+        constructor(modelo,velocidad,antiguedad,altura){
+            super(modelo,velocidad,antiguedad);
+            this.altura = altura;
+        }
+
+        mostrarAltura(){
+            return "Mostar la altura del autobus " + this.modelo + " con altura de " + this.altura;
+        }
+    }
+    
+    var autobus1 = new coche('PEGASUS', 200,2019,5);
+
+
+
+Crear conexióon a la base de datos en index.js
+usando mongoose. Puerto por defecto de MongoDB 2017
+
+
+mongoose.connect('mongodb://localhost:27017/api_rest_blog', { useNewUrlParser : true})
+.then(() => {
+    ...
+        });
+
+Para que el servidor se refresque y coja los nuevos cambios:
+Instalamos la nueva dependencia nodemon solo para desarrollo: install --save dev nodemon
+En el scripts start del package.JSON 
+     "start": "nodemon index.js "
+
+
+
+Comandos JS:
+
+MongoDB -- Gestor visual de BBDD No Relacionales. robo3t
+    Para crear base de datos:
+        use nombrebd
+    Añadir contenido a la base de datos
+        db.usuarios.save({nombre: 'Borja', apellido:'Martin'});
+    Ver bases de datos:
+        show dbs
+    Ver colecciones
+        show collections
+    buscar en las colecciones   
+        db.usuarios.find()
+
+NodesJs: node --version
+    Para installar librerias:
+        npm install --save express
+        npm install --save body-parser
+        npm install --save mongoose
+        npm install --save connect-multiparty
+        npm install --save validator
+        npm install -save nodemon
+        npm install --save dev nodemon
+
+    Conectar con MongoDB
+
+
+Crear el servidor:
+    Fichero app.js para cargar la base de la aplicación.
+
+
+Trabajando con un cliente API Rest:
+Postman (Cliente rest)
+
+Crear Modelos: Carpeta "models"
+Controladores y rutas JS
+
+Accion para guardar datos y validación de datos
+
+ReactJs 

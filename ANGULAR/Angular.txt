@@ -1,0 +1,123 @@
+Documentación Angular
+
+Componentes:
+    Un componente va a controlar un trozo de la pantalla o de la vista.
+    La lógica de un componente dentro de una clase en Angular es que da soporte a una vista interactuando con ella a través de un API con propiedades y métodos
+    El componente hace de mediador entre la vista a través de la plantilla y la lógica de la app donde se incluirá el modelo de datos, es decir, una especie de controlador
+
+Plantillas:
+    Van a definir la vista de los Componentes
+    Son htmls y tienen sintaxis especial de Angula. Trabajando con el databinding y las directivas.
+
+Decoradores y Metadatos:
+    Con los decoradores(patrón de diseño) vamos a configurar dinámicamente atributos/Metadatos de las clases y componentes.
+    Los metadatos van a describir a las clases pero tambien describen relaciones, por ejemplo si tenemos un componente y una plantilla el metadato se va a encargar de decirle
+    a Angular que ese componente y esa plantilla van juntos, entre otras muchas cosas.
+
+Servicios:
+    Son clases con un objetivo claro, facilita la reutilización, son un tipo de elemento dentro de la arquitectura de Angular y mediante la inyección de dependencias los podemos usar 
+    en otros componentes principales.
+
+Provides:
+    Son Servicios que nos proveen de datos o funcionalidades mediante sus métodos. Existen providers/Servicios propios de Angular o creados por nosotros mismos.    
+    
+Directivas:
+    Son funcionalidades aplicables al DOM y a los elementos HTML en las plantillas de un componente.
+    Por ejemplo, una directiva puede servir para controlar que un div se muestre o no
+                 - recorrer un array en la vista (directivas estructurales, estructuras condicionales y de control)
+                 - incluso también puede servir para darle un estilo u otro a un elemento del HTML
+                 - también para interactuar con el modelo de datos del componente.
+    Son nuevos atributos para aplicarle a cualquier cosa en nuestra plantilla/vista.
+
+Módulos:
+
+
+
+Instalar Angular
+    Actualizar versión de nodejs
+        > npm install -g npm@latest
+        > npm cache clean --force
+        > npm set audit false
+Installar ultima versión de algular cli.
+        > npm uninstall -g angular -cli
+        > npm uninstall -g @angular/cli
+        > npm cache clean --force
+        > npm install -g @angular/cli@latest
+        > npm install --save angular2-moment  //Instalar libreria - añade pipes para formatear fechas
+        > npm install --save angular-file-uploader //Instalar libreria para subida de ficheros
+        > npm install --save sweetalert  //Libreria para alertas
+
+Creamos proyecto nuevo
+    > ng new
+Arrancamos Angular
+    > ng serve    
+Documentación Angular CLI
+Generar componentes desde cmd (Ejecutar comando desde direcotrio donde se ha instalado Angular)
+    > ng g component 'ruta'
+
+
+
+
+Componentes:
+    app.component.spec.ts
+    app.component.ts
+    app.module.ts (oermite cargar componentes para poder utilizarlo en cuaquier parte de nuestra aplicación)
+
+    @Component
+        Decorador. Una funcionalidad que se le aplica a una clase para modificar su funcionamiento. (parametros que le pasamos a una clase)
+
+        @Component({
+            selector: 'app-root',                   //Nombre de la etiqueta que se va a generar en el HTML
+            templateUrl: './app.component.html',    //Si usamos template, usar comillas simples invertidas para introducir el código html
+            styleUrls: ['./app.component.css']
+        })    
+
+Vista:
+    app.component.html  
+
+Estilo:
+    app.component.css
+
+
+
+
+
+Actualizar a Angular 9:
+Nuevo compilador Ivy
+
+1- Debemos tener actualizado e instalado nodejs
+    > node --version
+    > npm install -g npm@latest
+    > npm cache clean --force
+    > npm set audit false
+
+2- Desinstalar los paquetes anteriores de Angular CLI
+    > npm uninstall -g angular-cli
+    > npm uninstall -g @angular-cli
+
+3- Borrar cache npm     
+    > npm cache clean --force
+
+4- Instalar nueva versión de Angular cli
+    > npm install -g @angular/cli@latest
+
+Ejecutar en carpeta donde se trabaje con los proyectos de Angular
+5- Instalar Angular9
+    > ng new
+        -nombre-de-proyecto
+        -no
+        -css
+
+6- Arrancamos el compilador y liveserve        
+    >ng serve
+
+
+Actualizar proyecto de Angular8 a Angular9
+1- Vamos a la carpeta donde tenenmos nuestro proyecto de angular
+2- Actualizamos Angular CLI y core a la versión 8 final
+    > np update @angular/cli@8 @angular/core@8
+3- Actualizamos Angular CLI y core a la version 9 final
+    > np update @angular/cli @angular/core
+
+
+
